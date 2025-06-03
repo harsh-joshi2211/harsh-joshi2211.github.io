@@ -1,30 +1,22 @@
-/* Darker theme base */
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: #121212; /* Very dark background */
-  background-image: radial-gradient(circle at 20% 20%, #1a1a1a, #121212);
+  background: #121212;
+  background: linear-gradient(135deg, #1c1c1c, #121212);
   color: #e0e0e0;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Hero section with subtle glowing text */
 .hero {
   text-align: center;
-  padding: 5rem 1rem;
-  background: linear-gradient(135deg, #1a237e 0%, #4a148c 100%);
-  box-shadow: 0 0 20px #4a148c88;
-  border-radius: 15px;
-  margin: 2rem auto;
+  padding: 4rem 1rem;
+  background: #1f1f1f;
+  border-radius: 12px;
   max-width: 700px;
-  color: #fff;
-  text-shadow: 0 0 10px #7e57c2;
-  transition: box-shadow 0.3s ease;
-}
-
-.hero:hover {
-  box-shadow: 0 0 40px #7e57c2;
+  margin: 2rem auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  color: #f5f5f5;
 }
 
 .hero-content {
@@ -32,104 +24,93 @@ body {
   margin: auto;
 }
 
-/* Profile picture with glowing border */
 .profile-pic {
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #7e57c2;
-  box-shadow: 0 0 15px #7e57c2;
+  border: 3px solid #555;
   margin-bottom: 1rem;
   transition: transform 0.3s ease;
 }
 
 .profile-pic:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px #ba68c8;
+  border-color: #888;
 }
 
-/* Navigation links */
 .nav-links {
   margin-top: 2rem;
 }
 
-/* Neon style buttons */
 .button {
   display: inline-block;
-  background-color: #7e57c2;
-  color: white;
-  font-weight: 700;
+  background-color: #333;
+  color: #ddd;
+  font-weight: 600;
   text-decoration: none;
-  padding: 0.7rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 30px;
   margin: 0 0.5rem;
-  box-shadow: 0 0 8px #7e57c2;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  letter-spacing: 0.05em;
+  border: 1.5px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #ba68c8;
-  box-shadow: 0 0 15px #ba68c8;
+  background-color: #444;
+  border-color: #777;
+  color: #fff;
 }
 
-/* Section styling */
 .section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   text-align: center;
-  background: #1a1a1a;
-  border-radius: 15px;
-  margin: 2rem auto;
+  background: #1e1e1e;
+  border-radius: 12px;
   max-width: 900px;
-  box-shadow: 0 4px 30px rgba(122, 81, 194, 0.4);
+  margin: 2rem auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
 
-/* Footer */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 1rem;
   font-size: 0.9rem;
-  background-color: rgba(30, 30, 30, 0.8);
-  color: #bbb;
-  box-shadow: inset 0 1px 3px rgba(255,255,255,0.1);
+  background-color: #181818;
+  color: #aaa;
+  border-top: 1px solid #222;
 }
 
-/* Page header */
 .page-header {
   padding: 2rem;
   text-align: center;
-  background: rgba(55, 0, 100, 0.8);
-  color: #ddd;
+  background: #292929;
+  color: #ccc;
   border-radius: 10px;
-  text-shadow: 0 0 5px #a04cff;
 }
 
-/* Project and Education sections */
 .project-section, .education-section {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-/* Cards with subtle glow */
 .project, .edu-card {
-  background: #2c2c2c;
+  background: #252525;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(122, 81, 194, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   color: #ddd;
   transition: box-shadow 0.3s ease;
 }
 
 .project:hover, .edu-card:hover {
-  box-shadow: 0 6px 30px rgba(186, 104, 200, 0.8);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.7);
 }
 
-/* Back link */
 .back-link {
-  color: #ba68c8;
+  color: #bbb;
   text-decoration: none;
   font-size: 1rem;
   display: inline-block;
@@ -138,34 +119,6 @@ footer {
 }
 
 .back-link:hover {
+  color: #fff;
   text-decoration: underline;
-  color: #e1bee7;
-}
-
-/* Add subtle animation to headings */
-h1, h2, h3 {
-  position: relative;
-  animation: glowText 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes glowText {
-  0% {
-    text-shadow: 0 0 5px #9c27b0, 0 0 10px #9c27b0, 0 0 15px #7e57c2;
-  }
-  100% {
-    text-shadow: 0 0 15px #ba68c8, 0 0 25px #ba68c8, 0 0 35px #ba68c8;
-  }
-}
-
-/* Add subtle background pattern for depth */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px),
-              radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-position: 0 0, 25px 25px;
-  background-size: 50px 50px;
-  pointer-events: none;
-  z-index: 0;
 }
