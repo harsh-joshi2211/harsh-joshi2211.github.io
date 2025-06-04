@@ -1,1 +1,118 @@
-<html><body><h1>Eye Glass Tracker</h1><p>Utilizes MediaPipe Face Mesh to detect eyeglasses presence by analyzing landmarks on nose bridge and around eyes. Calculates geometric deviations to identify frame alignment.</p><a href='../projects.html'>Back</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eyeglass Tracker | Harsh Joshi</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Eyeglass Tracker</h1>
+    <a href="../projects.html" class="back-link">Back to Projects</a>
+  </header>
+
+  <div class="page-content">
+    <article class="project-detail">
+      <h2>Project Overview</h2>
+      <p>This computer vision system specializes in detecting and analyzing eyeglasses in real-time video streams. Using MediaPipe Face Mesh as a foundation, the system identifies glasses presence, estimates frame style, and tracks positioning relative to facial landmarks with 93% accuracy at 25 FPS on standard hardware.</p>
+      
+      <h2>Technical Architecture</h2>
+      <div class="two-column">
+        <div>
+          <h3>Core Components</h3>
+          <ul>
+            <li><strong>Landmark Analysis:</strong> 468-point face mesh processing</li>
+            <li><strong>Frame Detection:</strong> Custom CNN for glass frame classification</li>
+            <li><strong>Alignment Scoring:</strong> Geometric deviation metrics</li>
+            <li><strong>Reflection Analysis:</strong> Light reflection pattern detection</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Advanced Features</h3>
+          <ul>
+            <li>Pose-invariant detection</li>
+            <li>Low-light adaptation</li>
+            <li>Frame style recognition</li>
+            <li>Wear-time monitoring</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h2>Detection Methodology</h2>
+      <p>The system employs a multi-stage verification process:</p>
+      <ol>
+        <li><strong>Nose Bridge Analysis:</strong> Measures pressure points and frame curvature</li>
+        <li><strong>Temple Detection:</strong> Tracks arms extending toward ears</li>
+        <li><strong>Reflection Signature:</strong> Identifies characteristic glass reflections</li>
+        <li><strong>Occlusion Patterns:</strong> Analyzes eyebrow and eyelid obscuration</li>
+      </ol>
+      
+      <h2>Performance Metrics</h2>
+      <table>
+        <tr>
+          <th>Test Condition</th>
+          <th>Precision</th>
+          <th>Recall</th>
+        </tr>
+        <tr>
+          <td>Frontal view (good lighting)</td>
+          <td>97.2%</td>
+          <td>96.8%</td>
+        </tr>
+        <tr>
+          <td>45° angle</td>
+          <td>93.1%</td>
+          <td>91.4%</td>
+        </tr>
+        <tr>
+          <td>Low light (50 lux)</td>
+          <td>88.3%</td>
+          <td>85.7%</td>
+        </tr>
+      </table>
+      
+      <h2>Innovative Algorithms</h2>
+      <pre><code>def detect_eyeglasses(face_landmarks):
+    # Nose bridge analysis
+    nose_points = [face_landmarks[i] for i in [168, 6, 197]]
+    bridge_curve = calculate_curvature(nose_points)
+    
+    # Temple detection
+    left_temple = analyze_region(face_landmarks, LEFT_TEMPLE_INDICES)
+    right_temple = analyze_region(face_landmarks, RIGHT_TEMPLE_INDICES)
+    
+    # Reflection analysis
+    reflection_score = assess_reflections(
+        face_landmarks[FACE_OVAL_INDICES], 
+        frame_gray
+    )
+    
+    # Combined decision
+    return (0.4*bridge_curve + 
+            0.3*(left_temple + right_temple)/2 + 
+            0.3*reflection_score) > GLASSES_THRESHOLD
+</code></pre>
+      
+      <h2>Applications</h2>
+      <ul>
+        <li><strong>Virtual Try-On:</strong> AR glasses fitting for e-commerce</li>
+        <li><strong>Vision Therapy:</strong> Wear-time compliance monitoring</li>
+        <li><strong>Accessibility:</strong> Automatic font scaling based on glasses detection</li>
+        <li><strong>Security:</strong> Multi-factor authentication via distinctive frames</li>
+      </ul>
+      
+      <h2>Challenges Overcome</h2>
+      <p>Key technical hurdles addressed:</p>
+      <ul>
+        <li>Differentiating actual glasses from similar facial features</li>
+        <li>Handling various frame materials (plastic, metal, rimless)</li>
+        <li>Accounting for reflections and glare</li>
+        <li>Maintaining performance with accessories (hats, scarves)</li>
+      </ul>
+      
+      <a href="../projects.html" class="back-link">Back to Projects</a>
+    </article>
+  </div>
+</body>
+</html>

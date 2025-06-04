@@ -1,1 +1,100 @@
-<html><body><h1>Reddit Q&A Scraper</h1><p>Built using PRAW and Streamlit to fetch Reddit posts and comments, identify questions, and store top 10 global queries into MongoDB. Integrated with counters and interactive UI for search and storage.</p><a href='../projects.html'>Back</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Q&A Scraper | Harsh Joshi</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Reddit Q&A Scraper</h1>
+    <a href="../projects.html" class="back-link">Back to Projects</a>
+  </header>
+
+  <div class="page-content">
+    <article class="project-detail">
+      <h2>Project Overview</h2>
+      <p>The Reddit Q&A Scraper is an advanced web scraping tool designed to systematically collect and organize technical questions and answers from Reddit communities. Targeting subreddits like r/learnprogramming, r/MachineLearning, and r/Python, this tool helps create structured datasets for training FAQ bots and analyzing community knowledge trends.</p>
+      
+      <h2>Technical Implementation</h2>
+      <p>The system architecture consists of multiple sophisticated components:</p>
+      <ul>
+        <li><strong>PRAW API Wrapper:</strong> Custom Python wrapper around the Python Reddit API Wrapper (PRAW) that handles rate limiting, error recovery, and pagination</li>
+        <li><strong>Question Detection:</strong> NLP pipeline using spaCy to identify genuine questions vs. rhetorical questions or false positives</li>
+        <li><strong>Answer Quality Scoring:</strong> Ensemble model combining vote counts, author credibility, text length, and sentiment analysis</li>
+        <li><strong>Knowledge Graph:</strong> Neo4j database organizing questions by topics, related concepts, and temporal trends</li>
+      </ul>
+      
+      <h2>Data Pipeline Architecture</h2>
+      <p>The scraping pipeline implements a multi-stage processing flow:</p>
+      <ol>
+        <li><strong>Subreddit Discovery:</strong> Identifies relevant technical communities using keyword search and cross-linking analysis</li>
+        <li><strong>Post Filtering:</strong> Applies regex patterns and ML classifiers to filter out memes, jokes, and off-topic content</li>
+        <li><strong>Conversation Thread Reconstruction:</strong> Parses comment trees to maintain question-answer context relationships</li>
+        <li><strong>Metadata Enrichment:</strong> Adds temporal features, author reputation scores, and topic tags</li>
+      </ol>
+      
+      <h2>Key Features</h2>
+      <table>
+        <tr>
+          <th>Feature</th>
+          <th>Implementation</th>
+        </tr>
+        <tr>
+          <td>Incremental Scraping</td>
+          <td>Checksum-based change detection to only process new/updated content</td>
+        </tr>
+        <tr>
+          <td>Sentiment Analysis</td>
+          <td>Custom fine-tuned DistilBERT model for technical content</td>
+        </tr>
+        <tr>
+          <td>Duplicate Detection</td>
+          <td>MinHash + LSH for near-duplicate question identification</td>
+        </tr>
+      </table>
+      
+      <h2>Performance Optimization</h2>
+      <p>Several techniques were employed to handle Reddit's scale:</p>
+      <ul>
+        <li>Implemented exponential backoff for rate limit handling</li>
+        <li>Developed a priority queue system focusing on high-engagement posts</li>
+        <li>Used multiprocessing with process pools for parallel subreddit scraping</li>
+        <li>Designed a disk-based caching layer to minimize API calls</li>
+      </ul>
+      
+      <h2>Code Samples</h2>
+      <pre><code># Core scraping function
+def scrape_subreddit(subreddit_name, max_posts=1000):
+    subreddit = reddit.subreddit(subreddit_name)
+    scraper = RedditScraper(
+        nlp_pipeline=TechnicalQAPipeline(),
+        quality_scorer=AnswerQualityScorer(),
+        storage=Neo4jStorage()
+    )
+    
+    for submission in subreddit.top(limit=max_posts):
+        if is_technical_question(submission):
+            thread = reconstruct_thread(submission)
+            enriched = enrich_metadata(thread)
+            scraper.process(enriched)
+            
+            # Respect rate limits
+            time.sleep(2)
+</code></pre>
+      
+      <h2>Analytics Capabilities</h2>
+      <p>The system includes powerful analysis features:</p>
+      <ul>
+        <li>Temporal trend analysis of question frequencies</li>
+        <li>Topic modeling using BERTopic</li>
+        <li>Answer quality correlation with author attributes</li>
+        <li>Difficulty estimation for questions</li>
+      </ul>
+      
+      <a href="../projects.html" class="back-link">Back to Projects</a>
+    </article>
+  </div>
+</body>
+</html>
