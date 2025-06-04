@@ -1,67 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harsh Joshi | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Harsh Joshi - AI/ML Developer</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Book Cover -->
-  <div class="book-cover" id="bookCover">
-    <div class="cover-content">
-      <img src="profile.jpg" alt="Harsh Joshi" class="cover-photo">
+  <header class="hero">
+    <div class="container">
+      <img src="images/profile.jpg" alt="Harsh Joshi" class="profile-pic"/>
       <h1>Harsh Joshi</h1>
-      <p class="subtitle">AI/ML Developer Portfolio</p>
-      <button id="openBook" class="cta-button">Open Portfolio</button>
+      <p class="tagline">Aspiring AI/ML Developer passionate about solving real-world problems</p>
+      <nav class="nav-buttons">
+        <a href="projects.html">Projects</a>
+        <a href="education.html">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-
-  <!-- Book Content -->
-  <div class="book-container" id="bookContainer">
-    <div class="book">
-      <!-- Page 1 (About Me) -->
-      <div class="page left-page">
-        <div class="page-content">
-          <h2>About Me</h2>
-          <p>I am a Python developer with a passion for Artificial Intelligence and Machine Learning...</p>
-          <div class="signature">Harsh Joshi</div>
-        </div>
-      </div>
-      <div class="page right-page">
-        <div class="page-content">
-          <img src="profile.jpg" alt="Profile" class="profile-image">
-        </div>
-      </div>
-
-      <!-- Page 2 (Projects) -->
-      <div class="page left-page">
-        <div class="page-content">
-          <h2>My Projects</h2>
-          <ul class="project-list">
-            <li><a href="#" class="project-link">Slack Chatbot</a></li>
-            <li><a href="#" class="project-link">Reddit Scraper</a></li>
-            <li><a href="#" class="project-link">Hand Tracking</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="page right-page">
-        <div class="page-content">
-          <ul class="project-list">
-            <li><a href="#" class="project-link">Face Detection</a></li>
-            <li><a href="#" class="project-link">Eyeglass Tracker</a></li>
-            <li><a href="#" class="project-link">Fraud Detection</a></li>
-          </ul>
-          <button class="next-page"><i class="fas fa-chevron-right"></i></button>
-        </div>
-      </div>
-
-      <!-- More pages can be added here -->
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  </header>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I am a Python developer with a passion for Artificial Intelligence and Machine Learning. I enjoy building real-time applications using computer vision, deep learning, and automation tools. My work includes projects like face detection, hand tracking, and chatbots using Llama 2.</p>
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:24f1000658@ds.study.iitm.ac.in">24f1000658@ds.study.iitm.ac.in</a></p>
+    <p>Phone: 8320590004</p>
+    <p><a href="https://www.linkedin.com/in/harsh-joshi-57ab86281" target="_blank">LinkedIn Profile</a></p>
+  </section>
 </body>
 </html>
